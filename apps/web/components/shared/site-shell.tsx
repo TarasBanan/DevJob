@@ -1,19 +1,36 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 type SiteShellProps = {
   children: ReactNode;
 };
 
-const navItems = [
-  { href: "/", label: "HOME" },
-  { href: "/jobs", label: "JOBS" },
-  { href: "/profile", label: "PROFILE" },
-  { href: "/dashboard", label: "DASHBOARD" },
-  { href: "/vacancies", label: "VACANCIES" }
-];
-
 export const SiteShell = ({ children }: SiteShellProps): JSX.Element => {
+  const cookieStore = cookies();
+  const role = cookieStore.get("role")?.value;
+
+  const guestNavItems = [
+    { href: "/", label: "HOME" },
+    { href: "/jobs", label: "JOBS" },
+    { href: "/login", label: "LOGIN" }
+  ];
+
+  const seekerNavItems = [
+    { href: "/", label: "HOME" },
+    { href: "/jobs", label: "JOBS" },
+    { href: "/profile", label: "PROFILE" }
+  ];
+
+  const employerNavItems = [
+    { href: "/", label: "HOME" },
+    { href: "/jobs", label: "JOBS" },
+    { href: "/dashboard", label: "DASHBOARD" },
+    { href: "/vacancies", label: "VACANCIES" }
+  ];
+
+  const navItems = role === "SEEKER" ? seekerNavItems : role === "EMPLOYER" ? employerNavItems : guestNavItems;
+
   return (
     <div className="min-h-screen bg-velvet text-showroom">
       <header className="border-b border-silver/70 px-4 py-4 sm:px-8">

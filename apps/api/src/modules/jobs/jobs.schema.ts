@@ -4,7 +4,11 @@ import { employmentTypeSchema } from "@devjob/shared";
 export const jobsQuerySchema = z.object({
   city: z.string().optional(),
   type: employmentTypeSchema.optional(),
-  q: z.string().optional()
+  q: z.string().optional(),
+  tag: z.string().optional(),
+  minSalary: z.coerce.number().int().nonnegative().optional(),
+  maxSalary: z.coerce.number().int().nonnegative().optional(),
+  freshnessDays: z.coerce.number().int().positive().optional()
 });
 
 export const createJobBodySchema = z.object({

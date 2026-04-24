@@ -9,12 +9,37 @@ type UserRecord = {
   email: string;
   fullName: string;
   role: UserRole;
+  password: string;
   createdAt: string;
 };
 
-const users = new Map<string, UserRecord>();
+const demoUsers: UserRecord[] = [
+  {
+    id: randomUUID(),
+    email: "seeker@devjob.com",
+    fullName: "Demo Seeker",
+    role: "SEEKER",
+    password: "123",
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: randomUUID(),
+    email: "employer@devjob.com",
+    fullName: "Demo Employer",
+    role: "EMPLOYER",
+    password: "123",
+    createdAt: new Date().toISOString()
+  }
+];
 
-const signToken = (user: UserRecord): string => {
+const users = new Map<string, UserRecord>(demoUsers.map((user) => [user.email, user]));
+
+const sanitizeUser = (user: UserRecord): Omit<UserRecord, "password"> => {
+  const { password: _password, ...safeUser } = user;
+  return safeUser;
+};
+
+const signToken = (user: Omit<UserRecord, "password">): string => {
   return jwt.sign(
     {
       sub: user.id,
@@ -27,30 +52,28 @@ const signToken = (user: UserRecord): string => {
 };
 
 export const authService = {
-  register: (email: string, fullName: string, role: UserRole): UserRecord => {
-    const existing = users.get(email);
-    if (existing) {
-      return existing;
+  registerPlaceholder: (): string => {
+    return "Registration is disabled in demo mode. Use seeker@devjob.com or employer@devjob.com with password 123.";
+  },
+  login: (email: string, password: string): Omit<UserRecord, "password"> | null => {
+    const user = users.get(email);
+
+    if (!user || user.password !== password) {
+      return null;
     }
 
-    const user: UserRecord = {
-      id: randomUUID(),
-      email,
-      fullName,
-      role,
-      createdAt: new Date().toISOString()
-    };
-
-    users.set(email, user);
-    return user;
+    return sanitizeUser(user);
   },
-  login: (email: string): UserRecord | null => {
-    return users.get(email) ?? null;
-  },
-  issueCookie: (res: Response, user: UserRecord): string => {
+  issueCookie: (res: Response, user: Omit<UserRecord, "password">): string => {
     const token = signToken(user);
     res.cookie("accessToken", token, {
       httpOnly: true,
+      sameSite: "lax",
+      secure: false,
+      path: "/"
+    });
+    res.cookie("role", user.role, {
+      httpOnly: false,
       sameSite: "lax",
       secure: false,
       path: "/"

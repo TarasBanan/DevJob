@@ -11,6 +11,14 @@ import { z } from "zod";
 
 type RequestInitWithBody = RequestInit & { body?: unknown };
 
+type JobsQueryParams = {
+  q?: string;
+  tag?: string;
+  freshnessDays?: number;
+  minSalary?: number;
+  maxSalary?: number;
+};
+
 const makeRequest = async <TSchema extends z.ZodTypeAny>(
   path: string,
   schema: TSchema,
@@ -35,14 +43,41 @@ const makeRequest = async <TSchema extends z.ZodTypeAny>(
   return schema.parse(json);
 };
 
+const jobsQueryToString = (params: JobsQueryParams): string => {
+  const query = new URLSearchParams();
+
+  if (params.q) {
+    query.set("q", params.q);
+  }
+
+  if (params.tag) {
+    query.set("tag", params.tag);
+  }
+
+  if (params.freshnessDays) {
+    query.set("freshnessDays", String(params.freshnessDays));
+  }
+
+  if (params.minSalary) {
+    query.set("minSalary", String(params.minSalary));
+  }
+
+  if (params.maxSalary) {
+    query.set("maxSalary", String(params.maxSalary));
+  }
+
+  const queryString = query.toString();
+  return queryString ? `?${queryString}` : "";
+};
+
 export const apiClient = {
-  register: (body: { email: string; fullName: string; role: "SEEKER" | "EMPLOYER" }) => {
-    return makeRequest("/api/auth/register", authPayloadSchema, { method: "POST", body });
+  registerPlaceholder: () => {
+    return makeRequest("/api/auth/register", z.object({ message: z.string() }), { method: "POST", body: {} });
   },
-  login: (body: { email: string }) => {
+  login: (body: { email: string; password: string }) => {
     return makeRequest("/api/auth/login", authPayloadSchema, { method: "POST", body });
   },
-  listJobs: () => makeRequest("/api/jobs", jobsListSchema),
+  listJobs: (params: JobsQueryParams = {}) => makeRequest(`/api/jobs${jobsQueryToString(params)}`, jobsListSchema),
   getJob: (jobId: string) => makeRequest(`/api/jobs/${jobId}`, jobSchema),
   listCompanies: () => makeRequest("/api/companies", companiesListSchema),
   getCompany: (slug: string) => makeRequest(`/api/companies/${slug}`, companySchema),
