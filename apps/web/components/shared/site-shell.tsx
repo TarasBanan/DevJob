@@ -38,12 +38,17 @@ export const SiteShell = ({ children }: SiteShellProps): JSX.Element => {
           <Link href="/" className="font-mono text-sm tracking-[1.4px]">
             DEVJOB
           </Link>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="font-mono text-xs tracking-[1.2px] text-silver">
                 {item.label}
               </Link>
             ))}
+            {role ? (
+              <Link href="/logout" className="rounded-full border border-silver px-3 py-1 font-mono text-xs tracking-[1.2px] text-silver">
+                LOGOUT
+              </Link>
+            ) : null}
           </div>
         </nav>
       </header>
