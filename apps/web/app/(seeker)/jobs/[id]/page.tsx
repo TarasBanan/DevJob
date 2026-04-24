@@ -19,21 +19,21 @@ export default async function JobDetailPage({ params }: JobDetailPageProps): Pro
         </p>
         <div className="flex gap-3">
           <Link href={`/company/${job.companySlug}`} className="rounded-full border border-silver px-5 py-2 font-mono text-xs tracking-[1.2px]">
-            О КОМПАНИИ
+            ABOUT COMPANY
           </Link>
           <Link href="/profile" className="rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]">
-            ОТКЛИКНУТЬСЯ
+            APPLY NOW
           </Link>
         </div>
       </div>
 
       <article className="border border-silver/70 p-5">
-        <p className="font-mono text-xs tracking-[1.2px] text-silver">ОПИСАНИЕ</p>
+        <p className="font-mono text-xs tracking-[1.2px] text-silver">DESCRIPTION</p>
         <p className="mt-3 text-silver">{job.description}</p>
       </article>
 
       <article className="border border-silver/70 p-5">
-        <p className="font-mono text-xs tracking-[1.2px] text-silver">ТРЕБОВАНИЯ</p>
+        <p className="font-mono text-xs tracking-[1.2px] text-silver">REQUIREMENTS</p>
         <ul className="mt-3 list-disc space-y-2 pl-6 text-silver">
           {job.requirements.map((item) => (
             <li key={item}>{item}</li>
@@ -42,7 +42,7 @@ export default async function JobDetailPage({ params }: JobDetailPageProps): Pro
       </article>
 
       <article className="border border-silver/70 p-5">
-        <p className="font-mono text-xs tracking-[1.2px] text-silver">ПОХОЖИЕ ВАКАНСИИ (PLACEHOLDER)</p>
+        <p className="font-mono text-xs tracking-[1.2px] text-silver">SIMILAR VACANCIES (PLACEHOLDER)</p>
         <div className="mt-3 flex flex-wrap gap-3">
           <Link href="/jobs" className="rounded-full border border-silver px-4 py-2 font-mono text-xs tracking-[1.2px]">
             Backend Engineer

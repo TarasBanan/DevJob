@@ -9,28 +9,28 @@ type PagePreview = {
 
 const previews: PagePreview[] = [
   {
-    title: "Каталог вакансий",
-    description: "Фильтруйте вакансии по городу, типу занятости и зарплате. Есть живые карточки и переход в детали.",
+    title: "Job Catalog",
+    description: "Filter jobs by city, employment type, and salary range with direct access to details.",
     href: "/jobs",
-    cta: "ОТКРЫТЬ КАТАЛОГ"
+    cta: "OPEN CATALOG"
   },
   {
-    title: "Профиль соискателя",
-    description: "Резюме, отклики, статусы и рекомендации для дальнейших шагов в поиске работы.",
+    title: "Seeker Profile",
+    description: "Resume, applications, statuses, and recommendations for your next job-search steps.",
     href: "/profile",
-    cta: "ПРОФИЛЬ"
+    cta: "PROFILE"
   },
   {
-    title: "Кабинет работодателя",
-    description: "Основные HR-метрики, воронка кандидатов и оперативный обзор вакансий.",
+    title: "Employer Dashboard",
+    description: "Core HR metrics, candidate funnel, and vacancy performance overview.",
     href: "/dashboard",
-    cta: "АНАЛИТИКА"
+    cta: "ANALYTICS"
   },
   {
-    title: "Страница компании",
-    description: "Публичный профиль компании: описание, стек, рейтинг и открытые позиции.",
+    title: "Company Page",
+    description: "Public company profile with description, tech stack, rating, and open roles.",
     href: "/company/aurora-labs",
-    cta: "ПРОФИЛЬ КОМПАНИИ"
+    cta: "COMPANY PROFILE"
   }
 ];
 
@@ -40,7 +40,7 @@ export default function HomePage(): JSX.Element {
       <div className="space-y-6">
         <h1 className="font-display text-5xl uppercase leading-[1.05] sm:text-7xl">DevJob</h1>
         <p className="max-w-2xl text-lg text-silver">
-          Платформа поиска работы в IT: вакансии, отклики, профили компаний и аналитика для работодателей.
+          IT hiring platform: vacancies, applications, company profiles, and employer analytics.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link href="/jobs" className="rounded-full border border-showroom px-6 py-3 font-mono text-sm tracking-[1.4px]">

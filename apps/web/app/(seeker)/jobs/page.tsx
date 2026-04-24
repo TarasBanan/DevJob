@@ -9,9 +9,9 @@ export default async function JobsPage(): Promise<JSX.Element> {
   return (
     <section className="space-y-8">
       <div className="space-y-3">
-        <h1 className="font-display text-5xl leading-[1.05]">Каталог вакансий</h1>
+        <h1 className="font-display text-5xl leading-[1.05]">Job Catalog</h1>
         <p className="max-w-3xl text-silver">
-          Публикуемый контент: живые вакансии, фильтры и зарплатные диапазоны. Ниже — стартовые данные для наполнения каталога.
+          Publishable content: live vacancies, filters, and salary ranges. The list below is starter content for the catalog.
         </p>
         <div className="flex flex-wrap gap-2">
           {filtersPlaceholder.map((filter) => (
@@ -45,7 +45,7 @@ export default async function JobsPage(): Promise<JSX.Element> {
       <div className="border border-silver/70 p-5">
         <p className="font-mono text-xs tracking-[1.2px] text-silver">CONTENT PLACEHOLDER</p>
         <p className="mt-2 text-silver">
-          Здесь будет блок «Топ-компании недели», рекомендации по стеку и персональные подборки вакансий.
+          This area will contain Top Companies of the Week, stack-based recommendations, and personalized job picks.
         </p>
       </div>
     </section>

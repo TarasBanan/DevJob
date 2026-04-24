@@ -32,8 +32,8 @@ export default function LoginPage(): JSX.Element {
 
   return (
     <section className="mx-auto max-w-xl border border-silver/70 p-6">
-      <h1 className="font-display text-4xl leading-[1.1]">Вход</h1>
-      <p className="mt-2 text-silver">Войдите в существующий аккаунт и продолжите работу с платформой.</p>
+      <h1 className="font-display text-4xl leading-[1.1]">Login</h1>
+      <p className="mt-2 text-silver">Sign in to your existing account and continue using the platform.</p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
         <input
@@ -52,20 +52,20 @@ export default function LoginPage(): JSX.Element {
       {result ? (
         <div className="mt-6 space-y-4 border border-showroom p-4">
           <p className="font-mono text-xs tracking-[1.2px] text-silver">AUTHENTICATED</p>
-          <p>Пользователь: {result.fullName}</p>
-          <p>Роль: {result.role}</p>
+          <p>User: {result.fullName}</p>
+          <p>Role: {result.role}</p>
           <Link
             href={result.role === "SEEKER" ? "/jobs" : "/dashboard"}
             className="inline-block rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]"
           >
-            ПЕРЕЙТИ В РАЗДЕЛ
+            GO TO SECTION
           </Link>
         </div>
       ) : null}
 
       {error ? (
         <p className="mt-4 text-silver">
-          {error}. <Link href="/register" className="underline">Создать аккаунт</Link>
+          {error}. <Link href="/register" className="underline">Create account</Link>
         </p>
       ) : null}
     </section>

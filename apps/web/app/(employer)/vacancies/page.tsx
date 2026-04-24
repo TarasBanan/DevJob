@@ -10,7 +10,7 @@ export default function VacanciesPage(): JSX.Element {
   return (
     <section className="space-y-6">
       <h1 className="font-display text-5xl leading-[1.05]">Vacancies</h1>
-      <p className="text-silver">Публикуемый контент: список вакансий работодателя и статусы по каждой позиции.</p>
+      <p className="text-silver">Publishable content: employer vacancy list with status for each role.</p>
       <div className="space-y-3">
         {draftVacancies.map((item) => (
           <article key={item.title} className="border border-silver/70 p-4">
@@ -21,10 +21,10 @@ export default function VacanciesPage(): JSX.Element {
       </div>
       <div className="flex gap-3">
         <Link href="/dashboard" className="rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]">
-          К АНАЛИТИКЕ
+          TO ANALYTICS
         </Link>
         <Link href="/jobs" className="rounded-full border border-silver px-5 py-2 font-mono text-xs tracking-[1.2px]">
-          К ПУБЛИЧНОМУ КАТАЛОГУ
+          TO PUBLIC CATALOG
         </Link>
       </div>
     </section>

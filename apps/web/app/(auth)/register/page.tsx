@@ -34,8 +34,8 @@ export default function RegisterPage(): JSX.Element {
 
   return (
     <section className="mx-auto max-w-xl border border-silver/70 p-6">
-      <h1 className="font-display text-4xl leading-[1.1]">Регистрация</h1>
-      <p className="mt-2 text-silver">Создайте аккаунт и продолжите в нужный раздел платформы.</p>
+      <h1 className="font-display text-4xl leading-[1.1]">Registration</h1>
+      <p className="mt-2 text-silver">Create an account and continue to the relevant platform section.</p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
         <input
@@ -43,7 +43,7 @@ export default function RegisterPage(): JSX.Element {
           value={fullName}
           onChange={(event) => setFullName(event.target.value)}
           type="text"
-          placeholder="Имя и фамилия"
+          placeholder="Full name"
           required
         />
         <input
@@ -70,17 +70,17 @@ export default function RegisterPage(): JSX.Element {
       {result ? (
         <div className="mt-6 space-y-4 border border-showroom p-4">
           <p className="font-mono text-xs tracking-[1.2px] text-silver">ACCOUNT CREATED</p>
-          <p>Пользователь: {result.fullName}</p>
-          <p>Роль: {result.role}</p>
+          <p>User: {result.fullName}</p>
+          <p>Role: {result.role}</p>
           <div className="flex gap-3">
             <Link
               href={result.role === "SEEKER" ? "/jobs" : "/dashboard"}
               className="rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]"
             >
-              ПРОДОЛЖИТЬ
+              CONTINUE
             </Link>
             <Link href="/login" className="rounded-full border border-silver px-5 py-2 font-mono text-xs tracking-[1.2px]">
-              ВОЙТИ
+              LOGIN
             </Link>
           </div>
         </div>

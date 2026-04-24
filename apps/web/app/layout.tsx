@@ -4,12 +4,12 @@ import { SiteShell } from "@/components/shared/site-shell";
 
 export const metadata: Metadata = {
   title: "DevJob",
-  description: "DevJob — платформа для поиска работы в IT"
+  description: "DevJob — IT job platform"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body>
         <SiteShell>{children}</SiteShell>
       </body>

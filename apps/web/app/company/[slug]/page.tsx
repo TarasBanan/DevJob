@@ -24,10 +24,10 @@ export default async function CompanyPage({ params }: CompanyPageProps): Promise
       </div>
 
       <article className="border border-silver/70 p-5">
-        <p className="font-mono text-xs tracking-[1.2px] text-silver">ПУБЛИКУЕМЫЙ КОНТЕНТ КОМПАНИИ</p>
-        <p className="mt-2 text-silver">Здесь публикуются отзывы сотрудников, открытые роли и материалы о команде (сейчас блок-заглушка).</p>
+        <p className="font-mono text-xs tracking-[1.2px] text-silver">PUBLISHABLE COMPANY CONTENT</p>
+        <p className="mt-2 text-silver">Employee reviews, open roles, and team materials will be published here (currently placeholder content).</p>
         <Link href="/jobs" className="mt-4 inline-block rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]">
-          СМОТРЕТЬ ВАКАНСИИ
+          VIEW VACANCIES
         </Link>
       </article>
     </section>
