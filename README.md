@@ -229,8 +229,3 @@ pnpm test
 - Add CI pipeline with strict lint/typecheck/test gates.
 - Add API docs (OpenAPI) and typed client generation.
 
----
-
-## 12. License
-
-No license file is currently defined in this repository. Add a project license before public distribution.
