@@ -66,7 +66,10 @@ const employerPreviews: PagePreview[] = [
 ];
 
 export default function HomePage(): JSX.Element {
-  const role = cookies().get("role")?.value;
+  const cookieStore = cookies();
+  const token = cookieStore.get("accessToken")?.value;
+  const roleCookie = cookieStore.get("role")?.value;
+  const role = token ? roleCookie : undefined;
   const previews = role === "SEEKER" ? seekerPreviews : role === "EMPLOYER" ? employerPreviews : guestPreviews;
 
   return (

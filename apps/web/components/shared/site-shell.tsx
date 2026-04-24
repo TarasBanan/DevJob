@@ -8,7 +8,9 @@ type SiteShellProps = {
 
 export const SiteShell = ({ children }: SiteShellProps): JSX.Element => {
   const cookieStore = cookies();
-  const role = cookieStore.get("role")?.value;
+  const token = cookieStore.get("accessToken")?.value;
+  const roleCookie = cookieStore.get("role")?.value;
+  const role = token ? roleCookie : undefined;
 
   const guestNavItems = [
     { href: "/", label: "HOME" },
