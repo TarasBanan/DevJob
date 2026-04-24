@@ -234,21 +234,34 @@ pnpm test
 
 ## 13. Screenshots
 
+Create a folder for images in the repository:
+
+```text
+docs/
+└── screenshots/
+    ├── home-guest.png
+    ├── login-demo.png
+    ├── jobs-catalog.png
+    ├── seeker-profile.png
+    └── employer-dashboard.png
+```
+
+Use real markdown image links (not code block examples), for example:
+
 ### Home (Guest)
-![Home page (guest)](docs/screenshots/home-guest.png)
+![Home page (guest)](./docs/screenshots/home-guest.png)
 
 ### Login (Demo Accounts)
-![Login page](docs/screenshots/login-demo.png)
+![Login page](./docs/screenshots/login-demo.png)
 
 ### Jobs Catalog
-![Jobs catalog](docs/screenshots/jobs-catalog.png)
+![Jobs catalog](./docs/screenshots/jobs-catalog.png)
 
 ### Seeker Profile
-![Seeker profile](docs/screenshots/seeker-profile.png)
+![Seeker profile](./docs/screenshots/seeker-profile.png)
 
 ### Employer Dashboard
-![Employer dashboard](docs/screenshots/employer-dashboard.png)
-
+![Employer dashboard](./docs/screenshots/employer-dashboard.png)
 
 ### Practical steps to add your own screenshots
 
@@ -258,6 +271,14 @@ pnpm test
 4. Place files into `docs/screenshots/`.
 5. Add/update markdown image links in this README.
 6. Commit both image files and `README.md`.
+
+
+### Troubleshooting (if images still do not render)
+
+- Make sure links are not wrapped in a fenced code block (```md ... ```).
+- Ensure files are committed in the same branch as this README.
+- Verify file names and case match exactly (`home-guest.png` ≠ `Home-Guest.png`).
+- Open image file directly in GitHub; if preview is blank, re-export the image as a valid PNG and re-upload.
 
 ### Screenshot checklist (recommended)
 
