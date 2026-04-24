@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { apiClient } from "@/lib/api-client";
 
 type CompanyPageProps = {
@@ -21,6 +22,14 @@ export default async function CompanyPage({ params }: CompanyPageProps): Promise
           </span>
         ))}
       </div>
+
+      <article className="border border-silver/70 p-5">
+        <p className="font-mono text-xs tracking-[1.2px] text-silver">ПУБЛИКУЕМЫЙ КОНТЕНТ КОМПАНИИ</p>
+        <p className="mt-2 text-silver">Здесь публикуются отзывы сотрудников, открытые роли и материалы о команде (сейчас блок-заглушка).</p>
+        <Link href="/jobs" className="mt-4 inline-block rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]">
+          СМОТРЕТЬ ВАКАНСИИ
+        </Link>
+      </article>
     </section>
   );
 }

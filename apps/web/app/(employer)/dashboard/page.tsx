@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function DashboardPage(): JSX.Element {
   return (
     <section className="space-y-6">
@@ -13,6 +15,14 @@ export default function DashboardPage(): JSX.Element {
             <p className="mt-2 font-display text-4xl leading-[1.05]">{item.value}</p>
           </article>
         ))}
+      </div>
+
+      <div className="border border-silver/70 p-5">
+        <p className="font-mono text-xs tracking-[1.2px] text-silver">КОНТЕНТ ДАШБОРДА</p>
+        <p className="mt-2 text-silver">Блоки воронки кандидатов, источники трафика и эффективность вакансий будут публиковаться здесь.</p>
+        <Link href="/vacancies" className="mt-4 inline-block rounded-full border border-showroom px-5 py-2 font-mono text-xs tracking-[1.2px]">
+          УПРАВЛЕНИЕ ВАКАНСИЯМИ
+        </Link>
       </div>
     </section>
   );
