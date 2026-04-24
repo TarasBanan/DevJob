@@ -234,21 +234,6 @@ pnpm test
 
 ## 13. Screenshots
 
-Create a folder for images in the repository:
-
-```text
-docs/
-└── screenshots/
-    ├── home-guest.png
-    ├── login-demo.png
-    ├── jobs-catalog.png
-    ├── seeker-profile.png
-    └── employer-dashboard.png
-```
-
-Then reference them from this README using relative paths:
-
-```md
 ### Home (Guest)
 ![Home page (guest)](docs/screenshots/home-guest.png)
 
@@ -263,7 +248,7 @@ Then reference them from this README using relative paths:
 
 ### Employer Dashboard
 ![Employer dashboard](docs/screenshots/employer-dashboard.png)
-```
+
 
 ### Practical steps to add your own screenshots
 
