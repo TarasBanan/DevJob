@@ -235,16 +235,16 @@ pnpm test
 ## 13. Screenshots
 
 ### Home (Guest)
-![Home page (guest)](https://github.com/TarasBanan/DevJob/raw/main/docs/screenshots/home-guest.png)
+![Home page (guest)](docs/screenshots/home-guest.png)
 
 ### Login (Demo Accounts)
-![Login page](https://github.com/TarasBanan/DevJob/raw/main/docs/screenshots/login-demo.png)
+![Login page](docs/screenshots/login-demo.png)
 
 ### Jobs Catalog
-![Jobs catalog](https://github.com/TarasBanan/DevJob/raw/main/docs/screenshots/jobs-catalog.png)
+![Jobs catalog](docs/screenshots/jobs-catalog.png)
 
 ### Seeker Profile
-![Seeker profile](https://github.com/TarasBanan/DevJob/raw/main/docs/screenshots/seeker-profile.png)
+![Seeker profile](docs/screenshots/seeker-profile.png)
 
 ### Employer Dashboard
-![Employer dashboard](https://github.com/TarasBanan/DevJob/raw/main/docs/screenshots/employer-dashboard.png)
+![Employer dashboard](docs/screenshots/employer-dashboard.png)
