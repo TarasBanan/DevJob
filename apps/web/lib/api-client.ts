@@ -43,6 +43,18 @@ const makeRequest = async <TSchema extends z.ZodTypeAny>(
   return schema.parse(json);
 };
 
+const makeRequestWithoutBody = async (path: string, init?: RequestInit): Promise<void> => {
+  const response = await fetch(`http://localhost:4000${path}`, {
+    ...init,
+    credentials: "include",
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+};
+
 const jobsQueryToString = (params: JobsQueryParams): string => {
   const query = new URLSearchParams();
 
@@ -76,6 +88,9 @@ export const apiClient = {
   },
   login: (body: { email: string; password: string }) => {
     return makeRequest("/api/auth/login", authPayloadSchema, { method: "POST", body });
+  },
+  logout: () => {
+    return makeRequestWithoutBody("/api/auth/logout", { method: "POST" });
   },
   listJobs: (params: JobsQueryParams = {}) => makeRequest(`/api/jobs${jobsQueryToString(params)}`, jobsListSchema),
   getJob: (jobId: string) => makeRequest(`/api/jobs/${jobId}`, jobSchema),
