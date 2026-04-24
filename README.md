@@ -229,3 +229,58 @@ pnpm test
 - Add CI pipeline with strict lint/typecheck/test gates.
 - Add API docs (OpenAPI) and typed client generation.
 
+---
+
+
+## 13. Screenshots
+
+Create a folder for images in the repository:
+
+```text
+docs/
+└── screenshots/
+    ├── home-guest.png
+    ├── login-demo.png
+    ├── jobs-catalog.png
+    ├── seeker-profile.png
+    └── employer-dashboard.png
+```
+
+Then reference them from this README using relative paths:
+
+```md
+### Home (Guest)
+![Home page (guest)](docs/screenshots/home-guest.png)
+
+### Login (Demo Accounts)
+![Login page](docs/screenshots/login-demo.png)
+
+### Jobs Catalog
+![Jobs catalog](docs/screenshots/jobs-catalog.png)
+
+### Seeker Profile
+![Seeker profile](docs/screenshots/seeker-profile.png)
+
+### Employer Dashboard
+![Employer dashboard](docs/screenshots/employer-dashboard.png)
+```
+
+### Practical steps to add your own screenshots
+
+1. Start the app locally (`pnpm dev`).
+2. Open the relevant pages in browser (`/`, `/login`, `/jobs`, `/profile`, `/dashboard`).
+3. Save screenshots as PNG files with clear, stable names (example: `jobs-catalog-v1.png`).
+4. Place files into `docs/screenshots/`.
+5. Add/update markdown image links in this README.
+6. Commit both image files and `README.md`.
+
+### Screenshot checklist (recommended)
+
+- Use one language consistently in UI for all screenshots.
+- Keep the same browser zoom and window size for comparable images.
+- Avoid sensitive data in captured UI.
+- Prefer compressed PNG/WebP to keep repository size reasonable.
+
+## 14. License
+
+No license file is currently defined in this repository. Add a project license before public distribution.
