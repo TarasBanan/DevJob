@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { apiClient } from "@/lib/api-client";
 
 export default function LogoutPage(): JSX.Element {
-  const router = useRouter();
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
@@ -13,15 +11,14 @@ export default function LogoutPage(): JSX.Element {
       try {
         await apiClient.logout();
         document.cookie = "role=; Max-Age=0; path=/";
-        router.replace("/jobs");
-        router.refresh();
+        window.location.assign("/jobs");
       } catch (caughtError) {
         setError(caughtError instanceof Error ? caughtError.message : "Logout failed");
       }
     };
 
     void runLogout();
-  }, [router]);
+  }, []);
 
   return (
     <section className="mx-auto max-w-xl border border-silver/70 p-6">
